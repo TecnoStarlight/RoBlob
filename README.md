@@ -91,3 +91,7 @@ RoBlob.Writers.WriteString(Blob, String: string)
 ```
 Writes the length of the string `String` as an unsigned integer, followed by a `Byte` sequence of individual characters. The string is left unfiltered, so if you are going to display it to others, you will need to filter it beforehand.
 
+```lua
+RoBlob.Writers.Flush(Blob)
+```
+This method completes the saving process by writing the final result into the `DataStore` using the `Key` stored by the constructor. It absolutely **must** be called after all save data has been written. Otherwise, it will not save anything. This function returns `true` on success, and `false` otherwise.
